@@ -1,0 +1,81 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #1c1e21;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-box {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #dddfe2;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #166fe5;
+}
+
+.form-switch {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.form-switch a {
+    color: #1877f2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#user-token-display {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.token-box {
+    background-color: #e7f3ff;
+    border: 1px solid #1877f2;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 10px;
+    word-wrap: break-word;
+}
