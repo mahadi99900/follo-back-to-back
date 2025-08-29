@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>স্বাগতম!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="signup-view">
+            <div class="form-box">
+                <h1>নতুন অ্যাকাউন্ট তৈরি করুন</h1>
+                <form id="signup-form">
+                    <input type="text" id="signup-name" placeholder="আপনার নাম দিন" required>
+                    <input type="password" id="signup-password" placeholder="একটি নতুন পাসওয়ার্ড দিন" required>
+                    <button type="submit">অ্যাকাউন্ট তৈরি করুন</button>
+                </form>
+                <div id="user-token-display" style="display: none;">
+                    <h3>আপনার অ্যাকাউন্ট তৈরি হয়েছে!</h3>
+                    <p>অনুগ্রহ করে আপনার ইউজার ট্যাগ এবং পাসওয়ার্ড সংরক্ষণ করুন। এটি হারিয়ে গেলে পুনরুদ্ধার করা যাবে না।</p>
+                    <div class="token-box">
+                        <strong>আপনার ইউজার ট্যাগ:</strong> <span id="new-user-token"></span>
+                    </div>
+                </div>
+                <p class="form-switch">ইতোমধ্যে অ্যাকাউন্ট আছে? <a href="#" id="show-login">লগইন করুন</a></p>
+            </div>
+        </div>
+
+        <div id="login-view" style="display: none;">
+            <div class="form-box">
+                <h1>লগইন করুন</h1>
+                <form id="login-form">
+                    <input type="text" id="login-token" placeholder="আপনার ইউজার ট্যাগ" required>
+                    <input type="password" id="login-password" placeholder="আপনার পাসওয়ার্ড" required>
+                    <button type="submit">প্রবেশ করুন</button>
+                </form>
+                <p class="form-switch">অ্যাকাউন্ট নেই? <a href="#" id="show-signup">নতুন অ্যাকাউন্ট তৈরি করুন</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
