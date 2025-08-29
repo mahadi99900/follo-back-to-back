@@ -1,22 +1,83 @@
+// --- Supabase সংযোগ স্থাপন ---
+const SUPABASE_URL = "YOUR_SUPABASE_URL";
+const SUPABASE_KEY = "YOUR_SUPABASE_ANON_KEY";
+const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
 document.addEventListener('DOMContentLoaded', () => {
     const signupView = document.getElementById('signup-view');
     const loginView = document.getElementById('login-view');
     const showLoginLink = document.getElementById('show-login');
     const showSignupLink = document.getElementById('show-signup');
+    const signupForm = document.getElementById('signup-form');
+    const loginForm = document.getElementById('login-form');
+    const userTokenDisplay = document.getElementById('user-token-display');
+    const newUserTokenSpan = document.getElementById('new-user-token');
 
-    // Switch to Login view
+    // --- View Switching ---
     showLoginLink.addEventListener('click', (e) => {
         e.preventDefault();
         signupView.style.display = 'none';
         loginView.style.display = 'block';
+        userTokenDisplay.style.display = 'none'; // Hide token display when switching
+        signupForm.reset();
     });
 
-    // Switch to Sign Up view
     showSignupLink.addEventListener('click', (e) => {
         e.preventDefault();
         loginView.style.display = 'none';
         signupView.style.display = 'block';
     });
 
-    // --- Supabase logic will be added here in the next part ---
+    // --- Sign Up Logic ---
+    signupForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('signup-name').value;
+        const password = document.getElementById('signup-password').value;
+        
+        // Create a unique user tag (token)
+        const userTag = name.toLowerCase().replace(/\s+/g, '') + Math.floor(1000 + Math.random() * 9000);
+        
+        // Supabase expects email or phone for sign up, we'll use a "dummy" email
+        const email = `${userTag}@example.com`;
+
+        const { data, error } = await supabase.auth.signUp({
+            email: email,
+            password: password,
+            options: {
+                data: { 
+                    full_name: name,
+                    user_tag: userTag 
+                }
+            }
+        });
+
+        if (error) {
+            alert("ত্রুটি: " + error.message);
+        } else {
+            // Show the generated user tag to the user
+            newUserTokenSpan.textContent = userTag;
+            userTokenDisplay.style.display = 'block';
+            signupForm.style.display = 'none';
+        }
+    });
+
+    // --- Login Logic ---
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const userTag = document.getElementById('login-token').value;
+        const password = document.getElementById('login-password').value;
+        const email = `${userTag}@example.com`;
+
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email: email,
+            password: password,
+        });
+
+        if (error) {
+            alert("ত্রুটি: " + error.message);
+        } else {
+            // Redirect to dashboard on successful login
+            window.location.href = 'dashboard.html';
+        }
+    });
 });
