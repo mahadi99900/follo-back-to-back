@@ -1,8 +1,6 @@
 // --- Supabase সংযোগ স্থাপন ---
-const SUPABASE_URL = "YOUR_SUPABASE_URL";
-const SUPABASE_KEY = "YOUR_SUPABASE_ANON_KEY";
-const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
+const SUPABASE_URL = "https://fldtxkwxzkcwdxseqlmk.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZsZHR4a3d4emtjd2R4c2VxbG1rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU5MjYwNjcsImV4cCI6MjA3MTUwMjA2N30.BM7c1BLAZ4rwxzWlEBOJyK4rLBSmz52aq_UA7CFQBLM";
 document.addEventListener('DOMContentLoaded', () => {
     const signupView = document.getElementById('signup-view');
     const loginView = document.getElementById('login-view');
