@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ড্যাশবোর্ড - ফলো ব্যাক ওয়েবসাইট</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+<body>
+    <div class="container dashboard-container">
+        <header class="dashboard-header">
+            <div class="user-info">
+                <p>স্বাগতম, <span id="user-email"></span></p>
+                <p>আপনার পয়েন্ট: <span id="user-points">0</span></p>
+            </div>
+            
+            <a href="reviews.html"><button>রিভিউ করুন</button></a>
+            
+            <button id="logout-btn">লগআউট</button>
+        </header>
+        <main>
+            <section class="create-post-section">
+                <h2>নতুন কাজ পোস্ট করুন</h2>
+                <form id="create-post-form">
+                    <input type="url" id="facebook-url" placeholder="আপনার ফেসবুক পোস্ট/পেইজের লিংক" required>
+                    <select id="interaction-type" required>
+                        <option value="">কাজের ধরন নির্বাচন করুন</option>
+                        <option value="Follow">ফলো</option>
+                        <option value="Like">লাইক</option>
+                        <option value="Share">শেয়ার</option>
+                    </select>
+                    <textarea id="description" placeholder="সংক্ষিপ্ত বিবরণ দিন (ঐচ্ছিক)"></textarea>
+                    <button type="submit">পোস্ট করুন</button>
+                </form>
+            </section>
+            <section class="post-list-section">
+                <h2>সকল সক্রিয় কাজ</h2>
+                <div id="post-list">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="proof-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2>কাজের প্রমাণ জমা দিন</h2>
+            <p>অনুগ্রহ করে কাজটি সম্পন্ন করার একটি স্ক্রিনশট আপলোড করুন।</p>
+            <form id="proof-form">
+                <input type="file" id="screenshot-file" accept="image/*" required>
+                <input type="url" id="commenter-facebook-url" placeholder="আপনার ফেসবুক প্রোফাইল লিংক" required>
+                <div class="modal-actions">
+                    <button type="button" id="cancel-proof-btn">বাতিল</button>
+                    <button type="submit">জমা দিন</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
