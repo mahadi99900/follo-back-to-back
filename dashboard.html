@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>লগইন - ফলো ব্যাক ওয়েবসাইট</title>
-    
+    <title>ড্যাশবোর্ড - ফলো ব্যাক ওয়েবসাইট</title>
     <link rel="stylesheet" href="style.css">
-    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<script src="//cdn.jsdelivr.net/npm/eruda"></script>
-<script>eruda.init();</script>
 <body>
     <div class="container dashboard-container">
         <header class="dashboard-header">
@@ -19,9 +14,7 @@
                 <p>স্বাগতম, <span id="user-email"></span></p>
                 <p>আপনার পয়েন্ট: <span id="user-points">0</span></p>
             </div>
-            
             <a href="reviews.html"><button>রিভিউ করুন</button></a>
-            
             <button id="logout-btn">লগআউট</button>
         </header>
         <main>
@@ -41,8 +34,7 @@
             </section>
             <section class="post-list-section">
                 <h2>সকল সক্রিয় কাজ</h2>
-                <div id="post-list">
-                    </div>
+                <div id="post-list"></div>
             </section>
         </main>
     </div>
@@ -62,7 +54,8 @@
         </div>
     </div>
 
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>eruda.init();</script>
     <script src="script.js" defer></script>
-    
 </body>
 </html>
